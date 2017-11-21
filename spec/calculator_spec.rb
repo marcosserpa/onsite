@@ -42,4 +42,38 @@ describe CalculatorFake do
       end
     end
   end
+
+  describe '.operate' do
+    context "when it's an addition" do
+      let!(:calculator) { CalculatorFake.new('-20.0', '55.0', '+') }
+
+      it 'returns the correct sum' do
+        expect(calculator.operate).to eql '35.000'
+      end
+    end
+
+    context "when it's a subtraction" do
+      let!(:calculator) { CalculatorFake.new('-20.0', '55.0', '-') }
+
+      it 'returns the correct difference' do
+        expect(calculator.operate).to eql '-75.000'
+      end
+    end
+
+    context "when it's a multiplication" do
+      let!(:calculator) { CalculatorFake.new('-20.0', '55.0', '*') }
+
+      it 'returns the correct product' do
+        expect(calculator.operate).to eql '-1100.000'
+      end
+    end
+
+    context "when it's a division" do
+      let!(:calculator) { CalculatorFake.new('-20.0', '55.0', '/') }
+
+      it 'returns the correct quocient' do
+        expect(calculator.operate).to eql '-0.364'
+      end
+    end
+  end
 end
