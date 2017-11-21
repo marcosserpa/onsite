@@ -41,6 +41,12 @@ describe CalculatorFake do
         expect{ calculator.check_input('55', '2', '') }.to output("You still must provide the operator, young man!\n").to_stdout
       end
     end
+
+    context 'given other digit as operator' do
+      it 'returns an error message' do
+        expect{ calculator.check_input('55', '2', '#') }.to output("You still must provide the operator, young man!\n").to_stdout
+      end
+    end
   end
 
   describe '.operate' do
@@ -48,7 +54,7 @@ describe CalculatorFake do
       let!(:calculator) { CalculatorFake.new('-20.0', '55.0', '+') }
 
       it 'returns the correct sum' do
-        expect(calculator.operate).to eql '35.000'
+        expect(calculator.operate).to eql 35.000
       end
     end
 
@@ -56,7 +62,7 @@ describe CalculatorFake do
       let!(:calculator) { CalculatorFake.new('-20.0', '55.0', '-') }
 
       it 'returns the correct difference' do
-        expect(calculator.operate).to eql '-75.000'
+        expect(calculator.operate).to eql -75.000
       end
     end
 
@@ -64,7 +70,7 @@ describe CalculatorFake do
       let!(:calculator) { CalculatorFake.new('-20.0', '55.0', '*') }
 
       it 'returns the correct product' do
-        expect(calculator.operate).to eql '-1100.000'
+        expect(calculator.operate).to eql -1100.000
       end
     end
 
@@ -72,7 +78,7 @@ describe CalculatorFake do
       let!(:calculator) { CalculatorFake.new('-20.0', '55.0', '/') }
 
       it 'returns the correct quocient' do
-        expect(calculator.operate).to eql '-0.364'
+        expect(calculator.operate).to eql -0.364
       end
     end
   end

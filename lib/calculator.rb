@@ -19,7 +19,7 @@ module Calculator
       when (n1 && n2).empty? # I know that the logig 'OR' is not so clear to read, but it's cute! :)
         puts 'You must provide 2 numbers and an operator, young padawan!'
         return false
-      when op.empty? || !op.gsub(/[^a-zA-Z0-9]/, '').empty?
+      when op.empty? || !op.gsub(/[\/\+\-\*]/, '').empty?
         puts 'You still must provide the operator, young man!'
         return false
       end
@@ -28,5 +28,9 @@ module Calculator
     end
 
     true
+  end
+
+  def operate
+    ('%.3f' % number_1.to_f.send(operator, number_2.to_f)).to_f
   end
 end
