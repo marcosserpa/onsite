@@ -13,10 +13,10 @@ module Calculator
   def check_input(n1, n2, op)
     begin
       case
-      when !(n1 && n2).gsub(/[\/\+\-\*\0-9]/, '').empty? # I know that the logig 'OR' is not so clear to read, but it's cute! :)
+      when !(n1 && n2).gsub(/[\/\+\-\*\0-9]/, '').empty? # I know that the logic 'OR' is not so clear to read, but it's cute! :)
         puts 'You cannot operate non-digit characters, young man. You must provide 2 numbers and an operator!'
         return false
-      when (n1 && n2).empty? # I know that the logig 'OR' is not so clear to read, but it's cute! :)
+      when (n1 && n2).empty? # I know that the logic 'OR' is not so clear to read, but it's cute! :)
         puts 'You must provide 2 numbers and an operator, young padawan!'
         return false
       when op.empty? || !op.gsub(/[\/\+\-\*]/, '').empty?
